@@ -1,12 +1,14 @@
 #!/bin/bash
 # 
+# Fix by Jason Brooks to correctly identify the SUDO User on Installation
+# 13th April 2021, www.muckypaws.com
 . /lib/lsb/init-functions
 
 daemonname="deskpi"
 tempmonscript=/usr/bin/pmwFanControl
 deskpidaemon=/lib/systemd/system/$daemonname.service
 safeshutdaemon=/lib/systemd/system/$daemonname-safeshut.service
-installationfolder=/home/$USER/deskpi
+installationfolder=/home/$SUDO_USER/deskpi
 
 # install DeskPi stuff.
 log_action_msg "DeskPi Fan control script installation Start." 
